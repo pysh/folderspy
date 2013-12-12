@@ -1,0 +1,6 @@
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\bin\Release\FolderSpy.exe.config
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\bin\Release\FolderSpy.exe
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\obj\x86\Release\ResolveAssemblyReference.cache
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\obj\x86\Release\FolderSpy.MainForm.resources
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\obj\x86\Release\FolderSpy.vbproj.GenerateResource.Cache
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\obj\x86\Release\FolderSpy.exe

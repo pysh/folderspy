@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+# SharpDevelop 4.3
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "FolderSpy", "FolderSpy\FolderSpy.vbproj", "{78BA757D-9DBF-44CB-B2D9-4EAC60E06F52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Компоненты решения", "Компоненты решения", "{F771B30A-6563-4324-8588-53076C8A62CB}"
+	ProjectSection(SolutionItems) = postProject
+		FolderSpy\7zG.exe = FolderSpy\7zG.exe
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{78BA757D-9DBF-44CB-B2D9-4EAC60E06F52}.Debug|x86.Build.0 = Debug|x86
+		{78BA757D-9DBF-44CB-B2D9-4EAC60E06F52}.Debug|x86.ActiveCfg = Debug|x86
+		{78BA757D-9DBF-44CB-B2D9-4EAC60E06F52}.Release|x86.Build.0 = Release|x86
+		{78BA757D-9DBF-44CB-B2D9-4EAC60E06F52}.Release|x86.ActiveCfg = Release|x86
+	EndGlobalSection
+EndGlobal

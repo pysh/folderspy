@@ -283,7 +283,7 @@ Public Partial Class MainForm
 	Sub BtnCompressClick(sender As Object, e As EventArgs)
 		Dim lstFileNames As New List(Of [String])()
 		Dim s As Long
-		Dim strDate As String = Now.Year.ToString & Now.Month.ToString & Now.Day.ToString
+		Dim strDate As String = Format(Now, "yyyyMMdd")
 		
 		For Each lvi As ListViewItem In listView1.Items
 			If lvi.Checked Then
@@ -291,14 +291,14 @@ Public Partial Class MainForm
 				s = s + CLng(lvi.SubItems(1).Text)
 			End If
 		Next
-		
+
 		Dim strTmpfileName As String = System.IO.Path.GetTempFileName
 		Using writer As StreamWriter = System.IO.File.CreateText(strTmpfileName)
 			writer.Write(Strings.Join(lstFileNames.ToArray, vbCrLf))
 		End Using
 		
-		Dim strArchName As String = Path.Combine(Path.GetDirectoryName(fswOffline.Path), strDate & "_графики_платежей=" & s.ToString & ".zip")
-		Dim strArguments As String = String.Format(" a -tzip -mx9 -- ""{0}"" @""{1}""", strArchName, strTmpfileName)
+		Dim strArchName As String = Path.Combine(Path.GetDirectoryName(fswOffline.Path), strDate & "_графики_платежей=" & s.ToString & ".7z")
+		Dim strArguments As String = String.Format(" a -t7z -mx9 -m0=PPMD -- ""{0}"" @""{1}""", strArchName, strTmpfileName)
 		' CompressFiles(lstFileNames.ToArray, strArchName & "+",0)
 		
 		' < Запуск архиватора>
@@ -346,7 +346,7 @@ Public Partial Class MainForm
 		Dim olApp As New Microsoft.Office.Interop.Outlook.Application
 		Dim m As Microsoft.Office.Interop.Outlook.MailItem
 		m = olApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem)
-		m.To = "" 'korneychuk@directoria.su"
+		m.To = "Сергей Корнейчук <korneychuk@directoria.su>"
 		m.CC = IIf(GetUserName()="pnosov", "opavlova5@rencredit.ru", "pnosov@rencredit.ru")
 		m.Subject = String.Format("Выгружены файлы для печати и отправки графиков платежей {0} ({1} шт.)", strDate, lngQty)
 		m.Attachments.Add(strAttachFileName)
@@ -355,8 +355,7 @@ Public Partial Class MainForm
 	
 	
 	Function GetUserName() As String
-	    If TypeOf My.User.CurrentPrincipal Is 
-	      Security.Principal.WindowsPrincipal Then
+	    If TypeOf My.User.CurrentPrincipal Is Security.Principal.WindowsPrincipal Then
 	        ' The application is using Windows authentication.
 	        ' The name format is DOMAIN\USERNAME.
 	        Dim parts() As String = Split(My.User.Name, "\")
@@ -417,9 +416,5 @@ Public Partial Class MainForm
 '    zipStream.Close()
 'End Sub
 
-	
-	
-	
-	
-	
+
 End Class

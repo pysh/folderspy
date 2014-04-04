@@ -10,3 +10,27 @@
 \\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\obj\x86\Debug\Interop.DigtCryptoLib.dll
 \\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\obj\x86\Debug\FolderSpy.vbproj.ResolveComReference.cache
 \\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\bin\Debug\Interop.DigtCryptoLib.dll
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\ResolveAssemblyReference.cache
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\Interop.DigtCryptoLib.dll
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.vbproj.ResolveComReference.cache
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.MainForm.resources
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.vbproj.GenerateResource.Cache
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.exe
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.pdb
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\7zG.exe
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\FolderSpy.exe.config
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\FolderSpy.exe
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\FolderSpy.pdb
+\\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\Interop.DigtCryptoLib.dll
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\7zG.exe
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\FolderSpy.exe.config
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\FolderSpy.exe
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\FolderSpy.pdb
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Debug\Interop.DigtCryptoLib.dll
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\ResolveAssemblyReference.cache
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\Interop.DigtCryptoLib.dll
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.vbproj.ResolveComReference.cache
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.MainForm.resources
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.vbproj.GenerateResource.Cache
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.exe
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Debug\FolderSpy.pdb

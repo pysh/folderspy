@@ -311,7 +311,7 @@ Public Partial Class MainForm
 		Me.TopMost = True
 		' </Запуск архиватора>
 		' < Шифрование архива>
-		Dim strEncryptedArchName As String = CryptoArm_EncryptFile(strArchName, "ТМ-Стрим", True, True)
+		Dim strEncryptedArchName As String = CryptoArm_EncryptFile(strArchName, "", True, True)
 		If strEncryptedArchName <> "" Then
 			SendEmail(strDate, s, strEncryptedArchName)
 		End If
@@ -339,14 +339,13 @@ Public Partial Class MainForm
 		End If
 		Return procEC
 	End Function
-
 	
 	
 	Sub SendEmail(strDate As String, lngQty As Long, strAttachFileName As String)
 		Dim olApp As New Microsoft.Office.Interop.Outlook.Application
 		Dim m As Microsoft.Office.Interop.Outlook.MailItem
 		m = olApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem)
-		m.To = "Сергей Корнейчук <korneychuk@directoria.su>"
+		m.To = "Андрухович Евгения Викторовна <e.andrykhovich@accordpost.ru>"
 		m.CC = IIf(GetUserName()="pnosov", "opavlova5@rencredit.ru", "pnosov@rencredit.ru")
 		m.Subject = String.Format("Выгружены файлы для печати и отправки графиков платежей {0} ({1} шт.)", strDate, lngQty)
 		m.Attachments.Add(strAttachFileName)
@@ -417,4 +416,8 @@ Public Partial Class MainForm
 'End Sub
 
 
+	
+	Sub LogBoxDoubleClick(sender As Object, e As EventArgs)
+		CryptoArm_EncryptFile("C:\paul\cards.zip","", True, False)
+	End Sub
 End Class

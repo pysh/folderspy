@@ -266,6 +266,7 @@ Partial Class MainForm
 		Me.LogBox.Name = "LogBox"
 		Me.LogBox.Size = New System.Drawing.Size(406, 82)
 		Me.LogBox.TabIndex = 0
+		AddHandler Me.LogBox.DoubleClick, AddressOf Me.LogBoxDoubleClick
 		'
 		'timer2
 		'
@@ -284,7 +285,7 @@ Partial Class MainForm
 		Me.Name = "MainForm"
 		Me.ShowInTaskbar = false
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-		Me.Text = "FolderSpy"
+		Me.Text = "FolderSpy /08.04.2014/"
 		Me.TopMost = true
 		AddHandler Shown, AddressOf Me.MainFormShown
 		AddHandler Resize, AddressOf Me.MainFormResize

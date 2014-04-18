@@ -65,9 +65,9 @@ Public Function CryptoArm_EncryptFile(strFileNameInput As String, _
 	            strFileNameSigned = strFileNameInput
 			End If
             strFileNameEncrypted = strFileNameSigned & "." & objProfile.EncryptedExtension(objProfile.EncryptExitFormat)
-            oPKCS7Message.Load (DigtCryptoLib.DATA_TYPE.DT_PLAIN_DATA, CStr(strFileNameInput))  'Загрузим исходные данные
-            oPKCS7Message.Sign  'Зашифруем данные, используя параметры подписи из профиля
-            oPKCS7Message.Save (DigtCryptoLib.DATA_TYPE.DT_SIGNED_DATA, objProfile.EncryptExitFormat, strFileNameEncrypted) 'Сохраним данные
+            oPKCS7Message.Load (DigtCryptoLib.DATA_TYPE.DT_PLAIN_DATA, CStr(strFileNameSigned))  'Загрузим исходные данные
+            oPKCS7Message.Encrypt 'Зашифруем данные, используя параметры подписи из профиля
+            oPKCS7Message.Save (DigtCryptoLib.DATA_TYPE.DT_ENVELOPED_DATA, objProfile.EncryptExitFormat, strFileNameEncrypted) 'Сохраним данные
             CryptoArm_EncryptFile = strFileNameEncrypted
             If (boolDeleteSignedFile) AndAlso (strFileNameInput <> strFileNameSigned) Then
             	IO.File.Delete (strFileNameSigned)

@@ -4,3 +4,13 @@
 \\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\obj\x86\Release\FolderSpy.MainForm.resources
 \\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\obj\x86\Release\FolderSpy.vbproj.GenerateResource.Cache
 \\rccf.ru\profiles\Office Users\pnosov\My Documents\SharpDevelop Projects\FolderSpy\FolderSpy\obj\x86\Release\FolderSpy.exe
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Release\7zG.exe
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Release\FolderSpy.exe.config
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Release\FolderSpy.exe
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\bin\Release\Interop.DigtCryptoLib.dll
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Release\ResolveAssemblyReference.cache
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Release\Interop.DigtCryptoLib.dll
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Release\FolderSpy.vbproj.ResolveComReference.cache
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Release\FolderSpy.MainForm.resources
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Release\FolderSpy.vbproj.GenerateResource.Cache
+U:\My Documents\SharpDevelop Projects\svn\FolderSpy\trunk\FolderSpy\obj\x86\Release\FolderSpy.exe

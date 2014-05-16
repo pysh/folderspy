@@ -13,8 +13,8 @@ Imports System.Text
 'Imports ICSharpCode.SharpZipLib.Zip
 
 Public Partial Class MainForm
-	
-	'Private dataObj As ShellDataObject = Nothing
+	Const strReplFrom As String = ">" & vbLf & "." & vbLf & vbTab & vbTab & "<"
+	Const strReplTo As String = " >" & vbLf & vbTab & vbTab & "<"
 	Private t2 As Integer = 0
 	Private ArchExe As String = System.IO.Path.Combine(Path.GetDirectoryName(Application.ExecutablePath), "7zG.exe")
 	
@@ -282,22 +282,35 @@ Public Partial Class MainForm
 	
 	Sub BtnCompressClick(sender As Object, e As EventArgs)
 		Dim lstFileNames As New List(Of [String])()
+		Dim lstFileNames2 As New List(Of [String])()
 		Dim s As Long
+		Dim strText As String = ""
 		Dim strDate As String = Format(Now, "yyyyMMdd")
+		Dim strFileName2 As String
+		Dim strArchPath As String = Path.Combine(Path.GetDirectoryName(fswOffline.Path),"_архив")
+		Dim strArchDatePath As String = Path.Combine(Path.GetDirectoryName(fswOffline.Path),"_архив\" & strDate)
+		
+		If Not Directory.Exists(strArchPath) Then Directory.CreateDirectory(strArchPath)
+		If Not Directory.Exists(strArchDatePath) Then Directory.CreateDirectory(strArchDatePath)
 		
 		For Each lvi As ListViewItem In listView1.Items
 			If lvi.Checked Then
+				strFileName2 = Path.Combine(strArchDatePath, Path.GetFileName(lvi.Name))
+				IO.File.Copy(lvi.Name, strFileName2)
 				lstFileNames.Add(lvi.Name)
+				lstFileNames2.Add(strFileName2)
 				s = s + CLng(lvi.SubItems(1).Text)
+				ReplaceStrInTextFile(strFileName2, strReplFrom, strReplTo)
+				strText = strText & lvi.Text & vbTab & lvi.SubItems(1).Text & vbCrLf
 			End If
 		Next
 
 		Dim strTmpfileName As String = System.IO.Path.GetTempFileName
 		Using writer As StreamWriter = System.IO.File.CreateText(strTmpfileName)
-			writer.Write(Strings.Join(lstFileNames.ToArray, vbCrLf))
+			writer.Write(Strings.Join(lstFileNames2.ToArray, vbCrLf))
 		End Using
 		
-		Dim strArchName As String = Path.Combine(Path.GetDirectoryName(fswOffline.Path), strDate & "_графики_платежей=" & s.ToString & ".7z")
+		Dim strArchName As String = Path.Combine(strArchDatePath, strDate & "_графики_платежей=" & s.ToString & ".7z")
 		Dim strArguments As String = String.Format(" a -t7z -mx9 -m0=PPMD -- ""{0}"" @""{1}""", strArchName, strTmpfileName)
 		' CompressFiles(lstFileNames.ToArray, strArchName & "+",0)
 		
@@ -307,24 +320,30 @@ Public Partial Class MainForm
 		Dim procEC As Integer
 		procEC = RunExe(ArchExe, strArguments)
 		Debug.WriteLine(ArchExe & " " & strArguments, procEC.ToString)
-		Me.WindowState = FormWindowState.Normal
-		Me.TopMost = True
-		' </Запуск архиватора>
-		' < Шифрование архива>
-		Dim strEncryptedArchName As String = CryptoArm_EncryptFile(strArchName, "", True, True)
-		If strEncryptedArchName <> "" Then
-			SendEmail(strDate, s, strEncryptedArchName)
-		End If
-		' </Шифрование архива>
-		' < Если выполнение удачно, то перенос файлов в папку Архив>
-		If procEC = 0 Then
+		If procEC=0 Then
+			' < Если выполнение удачно, то перенос файлов в папку Архив>
 			For Each strFileName As String In lstFileNames
 				IO.File.Move(strFileName, _
 						 	 IO.Path.Combine(IO.Path.GetDirectoryName(strFileName), _
 							 IO.Path.Combine("Архив\", IO.Path.GetFileName(strFileName))))
 			Next
+			' </Если выполнение удачно, то перенос файлов в папку Архив>
+			' < Если выполнение удачно, то перенос файлов в папку Архив>
+			For Each strFile As String In lstFileNames2
+				IO.File.Delete(strFile)
+			Next
+			' </Если выполнение удачно, то перенос файлов в папку Архив>
+			' < Шифрование архива>
+			Dim strEncryptedArchName As String = CryptoArm_EncryptFile(strArchName, "", True, True)
+			If strEncryptedArchName <> "" Then
+				SendEmail(strDate, s, strEncryptedArchName, strText)
+			End If
+			' </Шифрование архива>
 		End If
-		' </Если выполнение удачно, то перенос файлов в папку Архив>
+
+		Me.WindowState = FormWindowState.Normal
+		Me.TopMost = True
+		' </Запуск архиватора>
 	End Sub
 	
 	Function RunExe(strExename As String, strArguments As String) As Integer
@@ -340,16 +359,22 @@ Public Partial Class MainForm
 		Return procEC
 	End Function
 	
+	Sub ReplaceStrInTextFile(strFileName As String, strOld As String, strNew As string)
+		Dim s As String = IO.File.ReadAllText(strFileName, System.Text.Encoding.Default)
+		s = s.Replace(strOld, strNew)
+		IO.File.WriteAllText(strFileName, s, System.Text.Encoding.Default)
+	End Sub
 	
-	Sub SendEmail(strDate As String, lngQty As Long, strAttachFileName As String)
+	Sub SendEmail(strDate As String, lngQty As Long, strAttachFileName As String, Optional strText As String="")
 		Dim olApp As New Microsoft.Office.Interop.Outlook.Application
 		Dim m As Microsoft.Office.Interop.Outlook.MailItem
 		m = olApp.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem)
-		m.To = "Андрухович Евгения Викторовна <e.andrykhovich@accordpost.ru>"
-		m.CC = IIf(GetUserName()="pnosov", "opavlova5@rencredit.ru", "pnosov@rencredit.ru")
+		' m.To = "Андрухович Евгения Викторовна <e.andrykhovich@accordpost.ru>"
+		' m.CC = IIf(GetUserName()="pnosov", "opavlova5@rencredit.ru", "pnosov@rencredit.ru")
 		m.Subject = String.Format("Выгружены файлы для печати и отправки графиков платежей {0} ({1} шт.)", strDate, lngQty)
 		m.Attachments.Add(strAttachFileName)
-		m.Display(True)
+		m.Body = strText
+		m.Display(False)
 	End Sub
 	
 	

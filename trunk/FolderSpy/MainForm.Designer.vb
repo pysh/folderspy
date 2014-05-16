@@ -285,7 +285,7 @@ Partial Class MainForm
 		Me.Name = "MainForm"
 		Me.ShowInTaskbar = false
 		Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-		Me.Text = "FolderSpy /08.04.2014/"
+		Me.Text = "FolderSpy /16.05.2014/"
 		Me.TopMost = true
 		AddHandler Shown, AddressOf Me.MainFormShown
 		AddHandler Resize, AddressOf Me.MainFormResize
